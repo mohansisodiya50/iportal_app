@@ -1,0 +1,21 @@
+{
+  "name": "webpack2-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack-dev-server --entry ./src/app.js --output-filename ./dist/bundle.js",
+    "build:prod": "webpack src/js/app.js dist/bundle.js -p",
+    "watch": "webpack --watch"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^3.0.8",
+    "webpack-dev-server": "^3.1.4"
+  },
+  "dependencies": {
+    "webpack": "^3.1.4"
+  }
+}
