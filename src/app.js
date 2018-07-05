@@ -2,12 +2,13 @@ $(function () {
     $("#iPortalTable").igGrid({
         columns: [
             { headerText: "Year", key: "year", dataType: "number" },
+            { headerText: "Month", key: "month", dataType: "string", hidden: true },
             { headerText: "Date", key: "date", dataType: "date" },
             {
                     headerText: "Title",
                     key: "title",
                     dataType: "string",
-                    template: "<input type='button' value=${title} />"
+                    template: "<a onClick='window.open(\"./src/test-file.pdf\")' style='color: blue;cursor: pointer;'>${title}</a>"
             },
             { headerText: "Type", key: "type", dataType: "string" },
             { headerText: "Period", key: "period", dataType: "string" },
@@ -21,10 +22,16 @@ $(function () {
                     {
                     name: "GroupBy",
                     type: "local",
+                    groupedRowTextTemplate: "${val} (${count})",
                     columnSettings: [{
                         columnKey: "year",
                         isGroupBy: reports.length > 20 ? true : false
-                    }]
+                    },
+                    {
+                        columnKey: "month",
+                        isGroupBy: reports.length > 20 ? true : false
+                    }
+                  ]
                 }
                 ],
         width: "100%",
