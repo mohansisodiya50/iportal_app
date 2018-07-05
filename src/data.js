@@ -1,7 +1,7 @@
 var reports = [
     { "reportId": 1, "month": "January", "year": "2015", "date": "06/29/2015", "title": "Q1-2015-xyz1.pdf", "type": "Statement", "period": "2015.Q1", "account": "XYZ0001", "owner": "Mohan Sisodiya"},
     { "reportId": 11, "month": "January", "year": "2015", "date": "06/29/2015", "title": "Q2-2015-xyz1.pdf", "type": "Statement", "period": "2015.Q2", "account": "XYZ0001", "owner": "No-one Sisodiya"},
-    { "reportId": 12, "month": "Fabruary", "year": "2015", "date": "06/29/2015", "title": "Q2-2015-xyz1.pdf", "type": "Statement", "period": "2015.Q2", "account": "XYZ0001", "owner": "No-one Sisodiya"},
+    { "reportId": 12, "month": "February", "year": "2015", "date": "06/29/2015", "title": "Q2-2015-xyz1.pdf", "type": "Statement", "period": "2015.Q2", "account": "XYZ0001", "owner": "No-one Sisodiya"},
     { "reportId": 13, "month": "March", "year": "2015", "date": "06/29/2015", "title": "Q2-2015-xyz1.pdf", "type": "Statement", "period": "2015.Q2", "account": "XYZ0001", "owner": "No-one Sisodiya"},
     { "reportId": 14, "month": "June", "year": "2015", "date": "06/29/2015", "title": "Q2-2015-xyz1.pdf", "type": "Statement", "period": "2015.Q2", "account": "XYZ0001", "owner": "No-one Sisodiya"},
     { "reportId": 15, "month": "June", "year": "2015", "date": "06/29/2015", "title": "Q2-2015-xyz1.pdf", "type": "Statement", "period": "2015.Q2", "account": "XYZ0001", "owner": "No-one Sisodiya"},

@@ -20,8 +20,10 @@ $(function () {
                         name: "Filtering"
                     },
                     {
+                        name: "Sorting"
+                    },
+                    {
                     name: "GroupBy",
-                    type: "local",
                     groupedRowTextTemplate: "${val} (${count})",
                     columnSettings: [{
                         columnKey: "year",
