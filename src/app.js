@@ -1,14 +1,14 @@
 $(function () {
     $("#iPortalTable").igGrid({
         columns: [
-            { headerText: "Year", key: "year", dataType: "number" },
-            { headerText: "Month", key: "month", dataType: "string", hidden: true },
+            { headerText: "Year", key: "year", dataType: "date", format: "yyyy"},
+            { headerText: "Month", key: "month", dataType: "date", hidden: true, format: "MMMM" },
             { headerText: "Date", key: "date", dataType: "date" },
             {
-                    headerText: "Title",
-                    key: "title",
-                    dataType: "string",
-                    template: "<a onClick='window.open(\"./src/test-file.pdf\")' style='color: blue;cursor: pointer;'>${title}</a>"
+                headerText: "Title",
+                key: "title",
+                dataType: "string",
+                template: "<a onClick='window.open(\"./src/test-file.pdf\")' style='color: blue;cursor: pointer;'>${title}</a>"
             },
             { headerText: "Type", key: "type", dataType: "string" },
             { headerText: "Period", key: "period", dataType: "string" },
