@@ -27,11 +27,11 @@ $(function () {
                     groupedRowTextTemplate: "${val} (${count})",
                     columnSettings: [{
                         columnKey: "year",
-                        isGroupBy: reports.length > 20 ? true : false
+                        isGroupBy: true
                     },
                     {
                         columnKey: "month",
-                        isGroupBy: reports.length > 20 ? true : false
+                        isGroupBy: true
                     }
                   ]
                 }
