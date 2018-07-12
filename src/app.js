@@ -5,6 +5,7 @@ $(function () {
 
   axios.get('http://localhost:52239/api/documents')
     .then(function (response) {
+      console.log('response.data ', response.data);
        const data = response.data.map(obj => {
         let date = new Date(obj.createDate);
 
@@ -14,9 +15,8 @@ $(function () {
           date: (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear(),
           title: obj.name,
           type: obj.type,
-          period: obj.period,
           account: obj.accountNumber,
-          owner: obj.clientId
+          documentId: obj.documentId
         });
 
       });
@@ -26,24 +26,23 @@ $(function () {
       console.log(error);
     });
 });
-
+"Vmap.COAC.forwardLinkAction('${coacOriginalSecurityTemplate}', '', 'cLink');"
 
 function renderTable(reports) {
   $("#iPortalTable").igGrid({
       columns: [
           { headerText: "Year", key: "year", dataType: "number" },
+          { headerText: "", key: "documentId", dataType: "number", hidden: true },
           { headerText: "Month", key: "month", dataType: "date", hidden: true },
           { headerText: "Date", key: "date", dataType: "date" },
           {
                   headerText: "Title",
                   key: "title",
                   dataType: "string",
-                  template: "<a onClick='window.open(\"./src/test-file.pdf\")' style='color: blue;cursor: pointer;'>${title}</a>"
+                  template: "<a onClick='window.open(\"http://localhost:52239/api/documents/\" + ${documentId})' style='color: blue;cursor: pointer;'>${title}</a>"
           },
           { headerText: "Type", key: "type", dataType: "string" },
-          { headerText: "Period", key: "period", dataType: "string" },
-          { headerText: "Account", key: "account", dataType: "string" },
-          { headerText: "Owner", key: "owner", dataType: "string" }
+          { headerText: "Account", key: "account", dataType: "string" }
       ],
       features:[
         {
