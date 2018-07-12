@@ -1,43 +1,72 @@
 $(function () {
-    $("#iPortalTable").igGrid({
-        columns: [
-            { headerText: "Year", key: "year", dataType: "date", format: "yyyy"},
-            { headerText: "Month", key: "month", dataType: "date", hidden: true, format: "MMMM" },
-            { headerText: "Date", key: "date", dataType: "date" },
-            {
-                headerText: "Title",
-                key: "title",
-                dataType: "string",
-                template: "<a onClick='window.open(\"./src/test-file.pdf\")' style='color: blue;cursor: pointer;'>${title}</a>"
-            },
-            { headerText: "Type", key: "type", dataType: "string" },
-            { headerText: "Period", key: "period", dataType: "string" },
-            { headerText: "Account", key: "account", dataType: "string" },
-            { headerText: "Owner", key: "owner", dataType: "string" }
-        ],
-        features:[
-                    {
-                        name: "Filtering"
-                    },
-                    {
-                        name: "Sorting"
-                    },
-                    {
-                    name: "GroupBy",
-                    groupedRowTextTemplate: "${val} (${count})",
-                    columnSettings: [{
-                        columnKey: "year",
-                        isGroupBy: true
-                    },
-                    {
-                        columnKey: "month",
-                        isGroupBy: true
-                    }
-                  ]
-                }
-                ],
-        width: "100%",
-        dataSource: reports
+  const monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  axios.get('http://localhost:52239/api/documents')
+    .then(function (response) {
+       const data = response.data.map(obj => {
+        let date = new Date(obj.createDate);
+
+        return ({
+        	year: date.getFullYear(),
+          month: monthNames[date.getMonth()],
+          date: (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear(),
+          title: obj.name,
+          type: obj.type,
+          period: obj.period,
+          account: obj.accountNumber,
+          owner: obj.clientId
+        });
+
+      });
+      renderTable(data);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
-    $(".ui-iggrid-expandbutton.ui-iggrid-expandbuttonexpanded.ui-icon-minus").mousedown();
 });
+
+
+function renderTable(reports) {
+  $("#iPortalTable").igGrid({
+      columns: [
+          { headerText: "Year", key: "year", dataType: "number" },
+          { headerText: "Month", key: "month", dataType: "date", hidden: true },
+          { headerText: "Date", key: "date", dataType: "date" },
+          {
+                  headerText: "Title",
+                  key: "title",
+                  dataType: "string",
+                  template: "<a onClick='window.open(\"./src/test-file.pdf\")' style='color: blue;cursor: pointer;'>${title}</a>"
+          },
+          { headerText: "Type", key: "type", dataType: "string" },
+          { headerText: "Period", key: "period", dataType: "string" },
+          { headerText: "Account", key: "account", dataType: "string" },
+          { headerText: "Owner", key: "owner", dataType: "string" }
+      ],
+      features:[
+        {
+            name: "Filtering"
+        },
+        {
+            name: "Sorting"
+        },
+        {
+        name: "GroupBy",
+        groupedRowTextTemplate: "${val} (${count})",
+        columnSettings: [{
+            columnKey: "year",
+            isGroupBy: true
+          },
+          {
+            columnKey: "month",
+            isGroupBy: true
+          }
+        ]}
+      ],
+      width: "100%",
+      dataSource: reports
+  });
+  $(".ui-iggrid-expandbutton.ui-iggrid-expandbuttonexpanded.ui-icon-minus").mousedown();
+}
