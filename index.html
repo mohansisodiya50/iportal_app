@@ -10,6 +10,7 @@
 
     <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/themes/infragistics/infragistics.theme.css" rel="stylesheet" />
     <link href="http://cdn-na.infragistics.com/igniteui/2015.2/latest/css/structure/infragistics.css" rel="stylesheet" />
+    <link rel="stylesheet" href="src/styles/stylesheet.css">
 
     <script src="http://modernizr.com/downloads/modernizr-latest.js"></script>
     <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -20,7 +21,19 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-<table id='iPortalTable'></table>
+    <div class="container">
+        <div class="tabWrapper">
+            <ul class="tabs">
+                <li class="all"><a href="#">ALL</a></li>
+                <li class="year"><a href="#">YEAR</a></li>
+                <li class="account"><a href="#">ACCOUNT</a></li>
+                <li class="type"><a href="#">CATEGORY</a></li>
+            </ul>
+        </div>
+        <div class="igGridWrapper">
+            <table id='iPortalTable'></table>
+        </div>
+    </div>  
 
 <!--Sample JSON Data-->
 <script src="src/data.js"></script>

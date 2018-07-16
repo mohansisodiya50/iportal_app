@@ -11,12 +11,12 @@ $(function () {
 
         return ({
         	year: date.getFullYear(),
-          month: monthNames[date.getMonth()],
-          date: (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear(),
-          title: obj.name,
-          type: obj.type,
-          account: obj.accountNumber,
-          documentId: obj.documentId
+            month: monthNames[date.getMonth()],
+            date: (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear(),
+            title: obj.name,
+            type: obj.type,
+            account: obj.accountNumber,
+            documentId: obj.documentId
         });
 
       });
@@ -26,7 +26,6 @@ $(function () {
       console.log(error);
     });
 });
-"Vmap.COAC.forwardLinkAction('${coacOriginalSecurityTemplate}', '', 'cLink');"
 
 function renderTable(reports) {
   $("#iPortalTable").igGrid({
