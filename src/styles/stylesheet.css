@@ -1,37 +1,37 @@
-body > .container {
-margin: 0 auto;
+body > #container {
+    margin: 0 auto;
 }
 
-.container {
-width: 1000px;
-height: 1000px;
+#container {
+    width: 1000px;
+    height: 1000px;
 }
 
 .tabWrapper {
-border-bottom: 1px solid black;
-height: 48px;
+    border-bottom: 1px solid black;
+    height: 48px;
 }
 
 .tabs {
-display: flex;
-list-style: none;
-justify-content: center;
+    display: flex;
+    list-style: none;
+    justify-content: center;
 }
 
 .tabs a {
-text-decoration: none;
-display: block;
-padding: 14px;
-color: black;
-text-align: center;
+    text-decoration: none;
+    display: block;
+    padding: 14px;
+    color: black;
+    text-align: center;
 }
 
 .tabs li {
-border: 1px solid black;
-border-bottom: none;
-width: 200px;
+    border: 1px solid black;
+    border-bottom: none;
+    width: 200px;
 }
 
-.tabs li:hover {
-background-color: red;
+.activeTab {
+    background-color: red;
 }

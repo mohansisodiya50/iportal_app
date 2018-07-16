@@ -53,18 +53,29 @@ function renderTable(reports) {
         {
         name: "GroupBy",
         groupedRowTextTemplate: "${val} (${count})",
+        groupByAreaVisibility: "hidden",
         columnSettings: [{
-            columnKey: "year",
-            isGroupBy: true
+            columnKey: "year"
           },
           {
-            columnKey: "month",
-            isGroupBy: true
+            columnKey: "month"
           }
         ]}
       ],
       width: "100%",
       dataSource: reports
   });
-  $(".ui-iggrid-expandbutton.ui-iggrid-expandbuttonexpanded.ui-icon-minus").mousedown();
+  $("#container").on("click", groupBy);
+}
+
+function groupBy(event) {
+  let target = event.target.text.toLocaleLowerCase();
+
+  target = target === 'category' ? 'type' : target;
+  $("#iPortalTable").igGridGroupBy("ungroupAll");
+  
+  if(target !== 'all') {
+    $("#iPortalTable").igGridGroupBy("groupByColumn", target);
+    $(".ui-iggrid-expandbutton.ui-iggrid-expandbuttonexpanded.ui-icon-minus").mousedown();
+  }
 }
