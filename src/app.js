@@ -70,10 +70,12 @@ function renderTable(reports) {
 
 function groupBy(event) {
   let target = event.target.text.toLocaleLowerCase();
+  $('.tabs li a').removeClass('activeTab');
+  $(event.target).removeClass('activeTab').addClass("activeTab");
 
   target = target === 'category' ? 'type' : target;
   $("#iPortalTable").igGridGroupBy("ungroupAll");
-  
+
   if(target !== 'all') {
     $("#iPortalTable").igGridGroupBy("groupByColumn", target);
     $(".ui-iggrid-expandbutton.ui-iggrid-expandbuttonexpanded.ui-icon-minus").mousedown();
