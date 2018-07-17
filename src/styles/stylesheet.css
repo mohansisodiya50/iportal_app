@@ -2,14 +2,12 @@ body > #container {
     margin: 0 auto;
 }
 
-/* #container {
+#container {
     width: 1000px;
-    height: 1000px;
-} */
+}
 
 .tabWrapper {
-    /* border-bottom: 1px solid black; */
-    height: 42px;
+    height: 46px;
 }
 
 .tabs {

@@ -70,6 +70,7 @@ function renderTable(reports) {
 
 function groupBy(event) {
   let target = event.target.text.toLocaleLowerCase();
+
   $('.tabs li a').removeClass('activeTab');
   $(event.target).removeClass('activeTab').addClass("activeTab");
 
