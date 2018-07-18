@@ -20,16 +20,21 @@ body > #container {
     text-decoration: none;
     display: block;
     padding: 14px;
-    color: black;
+    color: #ffffff;
     text-align: center;
 }
 
 .tabs li {
-    border: 1px solid black;
+    border: 1px solid #A7AAAA;
     border-bottom: none;
     width: 200px;
+    background-color: #4C4C4E;
 }
 
 .activeTab {
-    background-color: red;
+    background-color: #c31820;
+}
+
+#iPortalTable_year, #iPortalTable_date, #iPortalTable_title, #iPortalTable_type, #iPortalTable_account {
+    color: #ffffff;
 }
